@@ -2,7 +2,7 @@
 
 Aplicacion web en la cual se consume la API de Marvel para obtener personajes y guarda en una base de datos local.
 
-## Tecnologias
+## Tecnologias ⚙
 
 - HTML
 - CSS
