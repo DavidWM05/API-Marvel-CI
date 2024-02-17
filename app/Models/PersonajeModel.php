@@ -10,7 +10,7 @@ class PersonajeModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
 
-    protected $allowedFields    = ['nombre','miniatura'];
+    protected $allowedFields    = ['nombre','miniatura','descripcion'];
 
     protected $useTimestamps    = false;
     protected $createdField     = 'created_at';

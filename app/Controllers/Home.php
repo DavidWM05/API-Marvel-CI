@@ -29,10 +29,12 @@ class Home extends BaseController
     public function enlistar(){        
         $personajesBD = $this->conectarBD();
 
-        $nuevoPersonaje = ['nombre'=>'','miniatura'=>''];
+        $nuevoPersonaje = ['nombre'=>'','miniatura'=>'','descripcion'=>''];
 
         $nuevoPersonaje['nombre'] = $_GET['nombre'];
-        $nuevoPersonaje['miniatura'] = $_GET['miniatura'];        
+        $nuevoPersonaje['miniatura'] = $_GET['miniatura'];
+        $nuevoPersonaje['descripcion'] = $_GET['descripcion'];
+
 
         $personajesBD->save($nuevoPersonaje);       
         
@@ -58,13 +60,15 @@ class Home extends BaseController
             $id = array();
 
             foreach ($personajesAPI as $value) {    // Recorrido por todos los personajes
-                $personaje = ['nombre'=>'','miniatura'=>''];
+                $personaje = ['nombre'=>'','miniatura'=>'','descripcion'=>''];
                 foreach ($value as $key => $data) { // Personaje
                     if($key == "name"){
                         $personaje['nombre'] = $data;                        
                     } elseif($key == "thumbnail"){
                         $pathfull = $data["path"].'.'.$data['extension'];
-                        $personaje['miniatura'] = $pathfull;                        
+                        $personaje['miniatura'] = $pathfull;
+                    } elseif($key == "description"){
+                        $personaje['descripcion'] = $data;
                     }
                 }
                 array_push($personajes,$personaje);
@@ -72,12 +76,5 @@ class Home extends BaseController
 
             return $personajes;
         }
-    }
-
-    //  Funcion Axiliar Para Conectar a la Base de Datos
-    private function conectarBD(){
-        $db = \Config\Database::connect();          //  Conexion a Base de datos
-        $personajesBD = new PersonajeModel($db);    //  Modelo de Personaje
-        return $personajesBD;
     }
 }

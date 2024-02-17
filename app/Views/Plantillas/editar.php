@@ -18,7 +18,11 @@
                         <div class="mb-3">
                             <label for="miniatura" class="col-form-label">URL de miniatura:</label>
                             <input type="url" class="form-control" name="miniatura" id="miniatura" value="<?php echo $personaje[0]['miniatura']?>" required>
-                        </div>    
+                        </div>
+                        <div class="mb-3">
+                                <label for="descripcion" class="col-form-label">Descripcion:</label>
+                                <input type="text" class="form-control" name="descripcion" id="descripcion" value="<?php echo $personaje[0]['descripcion']?>" required>
+                            </div>
                         <div class="modal-footer">
                             <a href="regresar" class="btn btn-danger">Cancelar</a>
                             <button type="submit" class="btn btn-success">Enviar</button>

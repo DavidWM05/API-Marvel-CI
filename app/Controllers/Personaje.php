@@ -33,6 +33,7 @@ class Personaje extends BaseController
         
         return $estructuraCompleta;
     }
+    
     public function editar()
     {
         /**
@@ -46,18 +47,21 @@ class Personaje extends BaseController
         
         return $estructuraCompleta;
     }
+    
     public function guardar() {
         $personajesBD = $this->conectarBD();
 
-        $nuevoPersonaje = ['nombre'=>'','miniatura'=>''];
+        $nuevoPersonaje = ['nombre'=>'','miniatura'=>'','descripcion'=>''];
 
         $nuevoPersonaje['nombre'] = $_POST['nombre'];
-        $nuevoPersonaje['miniatura'] = $_POST['miniatura'];        
+        $nuevoPersonaje['miniatura'] = $_POST['miniatura'];
+        $nuevoPersonaje['descripcion'] = $_POST['descripcion'];       
 
         $personajesBD->save($nuevoPersonaje);       
         
         return redirect()->back()->withInput();   
     }
+    
     public function eliminar()
     {
         $personajesBD = $this->conectarBD();
@@ -67,20 +71,23 @@ class Personaje extends BaseController
 
         return redirect()->back()->withInput();
     }
+
     public function actualizar(){
         $personajesBD = $this->conectarBD();
 
-        $nuevoPersonaje = ['nombre'=>'','miniatura'=>''];
+        $nuevoPersonaje = ['nombre'=>'','miniatura'=>'','descripcion'=>''];
 
         $nuevoPersonaje['nombre'] = $_POST['nombre'];
-        $nuevoPersonaje['miniatura'] = $_POST['miniatura'];        
+        $nuevoPersonaje['miniatura'] = $_POST['miniatura'];
+        $nuevoPersonaje['descripcion'] = $_POST['descripcion'];
 
         $personajesBD->where('nombre',$nuevoPersonaje['nombre'])
-        ->set(['miniatura'=>$nuevoPersonaje['miniatura']])
+        ->set(['miniatura'=>$nuevoPersonaje['miniatura'],'descripcion'=>$nuevoPersonaje['descripcion']])
         ->update();
         
         return redirect()->to('enlistados');
     }
+    
     public function buscar()
     {
         /**
@@ -95,6 +102,7 @@ class Personaje extends BaseController
         $this->session->set('encontrado', $personaje);        
         return redirect()->to('enlistados');        
     }
+    
     public function regresar(){
         return redirect()->to('enlistados');
     }

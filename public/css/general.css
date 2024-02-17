@@ -34,6 +34,11 @@ h1 {
     color: whitesmoke;
 }
 
+h2 {
+    font-size: 2rem;
+    color: whitesmoke;
+}
+
 .seccion-oscura {
     color: white;
     background-color: red;
@@ -94,11 +99,19 @@ h1 {
 /* Cards */
 .card{
     width: 20rem;
-    height: 25rem;    
+    height: 30rem;    
 }
-.card-img{
-    
+.card-img{    
     height: 260px;
+    transition: 0.5s;
+    object-fit: cover;
+}
+.card-img:hover{
+    transform: scale(1.2);
+}
+.overflow-auto{ 
+    height: 100px;
+    scrollbar-width: thin;
 }
 
 /* Pie de pagina */

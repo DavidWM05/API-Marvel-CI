@@ -11,7 +11,10 @@
             <div class="container">
                 <div class="row">                    
                     <!-- Enlistados -->
-                    <div class="col-md-3">
+                    <div class="col-md-5">
+                        <h2> Lista de Personajes de la API </h2>
+                    </div>
+                    <div class="col-md-2">
                         <a href="enlistados" class='btn btn-outline-success' style="width: 100%;">
                             Ver Enlistados
                             <!-- Icono -->
@@ -34,8 +37,15 @@
                                     <img src="<?php echo $personaje['miniatura']; ?>" class="card-img" alt="marvel">
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $personaje['nombre']; ?></h5>                                    
-
+                                    <h5 class="card-title"><?php echo $personaje['nombre']; ?></h5>
+                                    <div class="overflow-auto">                                        
+                                        <p style="text-align: justify;"><?php if($personaje['descripcion'] == null){
+                                                                                    echo 'No hay datos del personaje';
+                                                                                }else{
+                                                                                    echo $personaje['descripcion'];
+                                                                                }
+                                                                                ?></p>        
+                                    </div>
                                     <div class="btn-group" role="group" aria-label="Basic outlined example">
 
                                         <?php 
@@ -48,9 +58,9 @@
                                         }
 
                                         if($estado == 0){
-                                            echo '<a href="index.php/enlistar?nombre='.$personaje['nombre'].'&miniatura='.$personaje['miniatura'].'" class="btn btn-outline-primary btn-sm">Enlistar</a>';
+                                            echo '<a href="index.php/enlistar?nombre='.$personaje['nombre'].'&miniatura='.$personaje['miniatura'].'&descripcion='.$personaje['descripcion'].'" class="btn btn-outline-primary btn-sm">Enlistar</a>';
                                         }else{ ?>
-                                            <button type="button" class='btn btn-outline-success' style="width: 100%;">
+                                            <button type="button" class='btn btn-outline-success btn-sm' style="width: 100%;">
                                                 Ya enlistado
                                                 <!-- Icono -->
                                                 <i class="bi bi-fingerprint"></i>

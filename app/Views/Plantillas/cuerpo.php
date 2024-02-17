@@ -17,7 +17,7 @@
                             <div class="input-group rounded">
                                 <input name="buscador" id="buscador" type="search" class="form-control rounded" placeholder="Buscar Personaje..." minlength="3" required/>
                                 <button type="submit" class="btn btn-success">Buscar</button>
-                                <a href="enlistados" class="btn btn-success">Todos</a>
+                                <a href="enlistados" class="btn btn-light">Limpiar</a>
                             </div>
                         </form>
                         
@@ -55,6 +55,14 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $personaje['nombre']; ?></h5>
+                                    <div class="overflow-auto">                                        
+                                        <p style="text-align: justify;"><?php if($personaje['descripcion'] == null){
+                                                                                    echo 'No hay datos del personaje';
+                                                                                }else{
+                                                                                    echo $personaje['descripcion'];
+                                                                                }
+                                                                                ?></p>        
+                                    </div>
                                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                                         <a href="enlistados/editar?nombre=<?php echo $personaje['nombre']; ?>" class="btn btn-outline-primary btn-sm">Editar</a>
                                         <a href="enlistados/eliminar?nombre=<?php echo $personaje['nombre']; ?>" class="btn btn-outline-danger btn-sm">Eliminar</a>                                        
@@ -64,6 +72,8 @@
 
                         </div>
                     <?php } ?>
+
+                    <div class="container">                        
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
