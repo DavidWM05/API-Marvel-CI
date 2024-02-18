@@ -26,7 +26,7 @@ La API de Marvel ofrece datos sobre miles de personajes, incluidos sus nombres, 
 - HTML
 - CSS
 - JavaScript
-- CodeIgniter
+- CodeIgniter 4 🔥
 - MySQL
 
 ## Vistas 🏙
